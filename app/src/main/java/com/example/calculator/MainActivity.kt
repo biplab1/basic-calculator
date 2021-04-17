@@ -16,19 +16,15 @@ class MainActivity : AppCompatActivity() {
             editShowNumber.setText("")
         }
         isNewOp = false
-        isDotAdd = false
+
         val butSelect = view as Button
         var butClickValue:String = editShowNumber.text.toString()
         when (butSelect.id){
             but00.id ->{
-                if (butClickValue != "0" || butClickValue == "") {
-                    butClickValue += "00"
-                }
+                butClickValue += "00"
             }
             but0.id ->{
-                if (butClickValue != "0" || butClickValue == "") {
-                    butClickValue += "0"
-                }
+                butClickValue += "0"
             }
             but1.id ->{
                 butClickValue += "1"
@@ -59,21 +55,19 @@ class MainActivity : AppCompatActivity() {
             }
             butdot.id ->{
                 //TODO: prevent adding more than 1 dot
-                if (isDotAdd == false) {
+                if (!isDotOn) {
                     butClickValue += "."
-                    isDotAdd = true
-                }
-                else {
-                    butClickValue += ""
+                    isDotOn = true
                 }
             }
             butPlusMinus.id ->{
-                butClickValue = "-" + butClickValue
+                butClickValue = "-$butClickValue"
             }
          }
         editShowNumber.setText(butClickValue)
 
     }
+var isDotOn = false
 var oper = ""
 var oldNumber = ""
 var isNewOp = true
@@ -92,10 +86,10 @@ var isNewOp = true
             butAdd.id -> {
                 oper = "+"
             }
-
         }
         oldNumber = editShowNumber.text.toString()
         isNewOp = true // for new operation it is set to true
+        isDotOn = false
     }
 
     fun butEqualEvent(view: View){
@@ -114,19 +108,23 @@ var isNewOp = true
             "+" ->{
                 finalNumber = oldNumber.toDouble() + newNumber.toDouble()
             }
+
         }
         editShowNumber.setText(finalNumber.toString())
         isNewOp = true
+        isDotOn = false
     }
     fun butPercent(view: View){
         val number:Double = editShowNumber.text.toString().toDouble()/100
 
         editShowNumber.setText(number.toString())
         isNewOp = true //cleanup after percent
+        isDotOn = false
 
     }
     fun butClear(view: View){
         editShowNumber.setText("")
         isNewOp = true  // consider a new operation after pressing AC button
+        isDotOn = false
     }
 }
