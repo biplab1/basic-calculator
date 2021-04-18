@@ -60,8 +60,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             butPlusMinus.id ->{
-                val toggle = butClickValue.toDouble() * (-1)
-                butClickValue = toggle.toString()
+                if (butClickValue !="") {
+                    val toggle = butClickValue.toDouble() * (-1)
+                    butClickValue = toggle.toString()
+                }
+                else {
+                    butClickValue = "0"
+                }
             }
          }
         if (butClickValue == "0" || butClickValue == "00"){
