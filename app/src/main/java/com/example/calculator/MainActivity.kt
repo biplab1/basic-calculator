@@ -20,6 +20,9 @@ class MainActivity : AppCompatActivity() {
         val butSelect = view as Button
         var butClickValue:String = editShowNumber.text.toString()
         when (butSelect.id){
+            but00.id ->{
+                butClickValue += "00"
+            }
             but0.id -> {
                     butClickValue += "0"
             }
@@ -61,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 butClickValue = toggle.toString()
             }
          }
-        if (butClickValue == "0"){
+        if (butClickValue == "0" || butClickValue == "00"){
             editShowNumber.setText("0")
             isNewOp = true
         }
