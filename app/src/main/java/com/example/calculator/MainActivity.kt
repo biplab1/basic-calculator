@@ -20,11 +20,11 @@ class MainActivity : AppCompatActivity() {
         val butSelect = view as Button
         var butClickValue:String = editShowNumber.text.toString()
         when (butSelect.id){
-            but00.id ->{
+            but00.id -> {
                 butClickValue += "00"
             }
             but0.id ->{
-                butClickValue += "0"
+                   butClickValue += "0"
             }
             but1.id ->{
                 butClickValue += "1"
@@ -54,14 +54,14 @@ class MainActivity : AppCompatActivity() {
                 butClickValue += "9"
             }
             butdot.id ->{
-                //TODO: prevent adding more than 1 dot
-                if (!isDotOn) {
+               if (!isDotOn) {
                     butClickValue += "."
                     isDotOn = true
                 }
             }
             butPlusMinus.id ->{
-                butClickValue = "-$butClickValue"
+                val toggle = butClickValue.toDouble() * (-1)
+                butClickValue = toggle.toString()
             }
          }
         editShowNumber.setText(butClickValue)
@@ -94,7 +94,7 @@ var isNewOp = true
 
     fun butEqualEvent(view: View){
         val newNumber = editShowNumber.text.toString()
-        var finalNumber:Double?=null
+        var finalNumber:Double?= newNumber.toDouble()
         when (oper){
             "/" ->{
                 finalNumber = oldNumber.toDouble() / newNumber.toDouble()
@@ -123,7 +123,7 @@ var isNewOp = true
 
     }
     fun butClear(view: View){
-        editShowNumber.setText("")
+        editShowNumber.setText("0")
         isNewOp = true  // consider a new operation after pressing AC button
         isDotOn = false
     }
