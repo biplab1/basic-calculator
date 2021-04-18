@@ -266,26 +266,13 @@
 
         <Button
             android:id="@+id/but0"
-            android:layout_width="40pt"
+            android:layout_width="81pt"
             android:layout_height="40pt"
             android:layout_marginRight="1pt"
-            android:layout_weight="1"
+            android:layout_weight="1.9"
             android:background="@color/lightgray"
             android:onClick="butNumberEvent"
             android:text="0"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            app:backgroundTint="@color/lightgray" />
-
-        <Button
-            android:id="@+id/but00"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:layout_marginRight="1pt"
-            android:layout_weight="1"
-            android:background="@color/lightgray"
-            android:onClick="butNumberEvent"
-            android:text="00"
             android:textColor="@color/black"
             android:textSize="30sp"
             app:backgroundTint="@color/lightgray" />
