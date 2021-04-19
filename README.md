@@ -3,4 +3,4 @@
  
  # Screenshot of the Calculator
  
- ![Screenshot of App](calculator_app_screenshot.jpg?raw=true)
+ <img src="calculator_screenshot.jpg" width="100" height="100">
